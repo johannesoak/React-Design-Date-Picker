@@ -1,8 +1,6 @@
 # React Design Date Picker
 
 A clean Date Picker to be used with React functional components.
-
-
  
 ## Features
 
@@ -11,6 +9,18 @@ A clean Date Picker to be used with React functional components.
 - Binding for useState hooks.
 - Start date & End date or Single date option.
 - Translation & Locales setting.
+
+## To-Do
+
+- Design the draggable element.
+- Responsive design.
+- Add main color option.
+- Add accessability keyboard support.
+- Validate that it's working as expected in different timezones.
+
+## Known Bugs
+
+- Sets date when selecting month or year in the picker.
 
 ## License
 
