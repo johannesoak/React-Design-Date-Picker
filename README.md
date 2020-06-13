@@ -10,8 +10,6 @@ A clean Date Picker to be used with React functional components.
 - Start date & End date or Single date option.
 - Set weekday to start on monday or sunday.
 - Translation & Locales setting.
-- Add Framer animations.
-- Create a infinity scroll layout.
 
 ## To-Do
 
@@ -22,6 +20,9 @@ A clean Date Picker to be used with React functional components.
 - Validate that it's working as expected in different timezones.
 - Create tests using Jest framework.
 - Add a time input.
+- Add Framer animations.
+- Create a infinity scroll layout.
+
 
 ## Known Bugs
 
