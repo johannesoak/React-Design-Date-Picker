@@ -21,6 +21,7 @@ A clean Date Picker to be used with React functional components.
 - Add accessability keyboard support.
 - Validate that it's working as expected in different timezones.
 - Create tests using Jest framework.
+- Add a time input.
 
 ## Known Bugs
 
