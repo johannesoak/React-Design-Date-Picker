@@ -1,0 +1,628 @@
+#DesignDataPicker * {
+    box-sizing: border-box;
+}
+
+#DesignDataPicker.OuterDatePicker {
+    width: 250px;
+    height: 50px;
+    background: white;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid #4584d6;
+}
+
+#DesignDataPicker.OuterDatePicker .OuterStartTime,
+#DesignDataPicker.OuterDatePicker .OuterEndTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#DesignDataPicker.OuterDatePicker .OuterStartTime span,
+#DesignDataPicker.OuterDatePicker .OuterEndTime span {
+    display: block;
+    visibility: hidden;
+    font-size: 0px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+#DesignDataPicker.OuterDatePicker .OuterStartTime:hover,
+#DesignDataPicker.OuterDatePicker .OuterEndTime:hover {
+    background: #4584d6;
+    color: white;
+}
+
+#DesignDataPicker.OuterDatePicker .OuterStartTime:hover > span,
+#DesignDataPicker.OuterDatePicker .OuterEndTime:hover > span {
+    visibility: visible;
+    opacity: 1;
+    font-size: 10px;
+    color: white;
+}
+
+#DesignDataPicker .DesignDatePicker svg {
+   fill: #4584d6;
+}
+
+#DesignDataPicker .NotActive {
+    opacity: 0.3;
+}
+
+#DesignDataPicker .DesignDatePickerWrapper.InnerArea {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#DesignDataPicker .OuterArea {
+    position: fixed;
+    top: 0;
+    left : 0;
+    background: #ffffff94;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#DesignDataPicker .disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#DesignDataPicker .DesignDatePicker {
+    position: relative;
+    width: 520px;
+    height: auto;
+    background: white;
+    border: 1px solid #707070;
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#DesignDataPicker .DateCounter {
+    width: 100%;
+    height: 70px;
+    background: white;
+    border: 1px solid #c1c1c1;
+    border-radius: 20px;
+    margin: 5px 0;
+    overflow: hidden;
+    display: inline-flex;
+    position: relative;
+}
+
+#DesignDataPicker .DateCounter .StartDateCounter,
+#DesignDataPicker .DateCounter .EndDateCounter {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#DesignDataPicker .DateCounter .StartDateCounter.ActiveDate,
+#DesignDataPicker .DateCounter .EndDateCounter.ActiveDate {
+    background: #4584D6!important;
+    color: white;
+}
+
+#DesignDataPicker .DateCounter .StartDateCounter span,
+#DesignDataPicker .DateCounter .EndDateCounter span {
+    font-size: 20px;
+}
+
+#DesignDataPicker .DateCounter .StartDateCounter input,
+#DesignDataPicker .DateCounter .EndDateCounter input {
+    font-size: 20px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    font-family: inherit;
+    padding: 0;
+}
+
+#DesignDataPicker .DateCounter .DateExplainer {
+    top: 5px;
+    font-size: 12px!important;
+    font-weight: 600;
+}
+
+#DesignDataPicker .DateCounter .DateSwitcher {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    background: #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+ }
+
+ #DesignDataPicker .DateCounter .DateSwitcher:hover {
+    border-radius: 35px;
+ }
+
+ #DesignDataPicker .DesignDatePicker .rotateLeft {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#DesignDataPicker .DesignDatePickerHeader {
+    width: 100%;
+    height: 130px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#DesignDataPicker .DesignDatePickerHeader .PickerMonthYear {
+    width: 50%;
+    height: auto;
+    margin: 0 10%;
+    padding: 20px 0;
+    color: #4584D6;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#DesignDataPicker .DesignDatePickerHeader .PickerMonthYear span {
+    font-size: 20px;
+}
+
+#DesignDataPicker .PickerMonthYear .ChangeMonth {
+    font-size: 1px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#DesignDataPicker .PickerMonthYear .ChangeMonth:hover {
+    text-decoration: underline;
+}
+
+#DesignDataPicker .PickerMonthYear:hover > .ChangeMonth {
+    opacity: 1;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#DesignDataPicker .DesignDatePickerHeader svg {
+    cursor: pointer;
+}
+
+#DesignDataPicker .DesignDatePickerSubHeader {
+    width: 100%;
+    height: 50px;
+    padding: 0 5px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    color: #4584D6;
+    font-size: 13px;
+}
+
+#DesignDataPicker .DesignDatePickerMain {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate {
+    width: 100%;
+    height: 70px;
+    padding: 5px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate span,
+#DesignDataPicker .DesignDatePickerSubHeader span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    transition: all 0.1s ease-in-out;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate span:hover:not(.NotActiveMonth) {
+    background: #4584D6;
+    border-radius: 35px;
+    color: white;
+    font-weight: bold;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate .ActiveDay {
+    background: #4584D6;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate .SelectedDay {
+    background: #4e9bffe3;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate .NotActiveMonth {
+    color: #CECECE;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate .MainMonth {
+    width: 150px!important;
+}
+
+#DesignDataPicker .DesignDatePickerMainDate .MainMonth:hover {
+    border-radius: 5px!important;
+}
+
+/*------------------*/
+/*  Compact Design  */
+/*------------------*/
+
+#DesignDataPickerCompact * {
+    box-sizing: border-box;
+}
+
+#DesignDataPickerCompact.OuterDatePicker {
+    width: 250px;
+    height: 50px;
+    background: white;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: 2px solid #4584d6;
+}
+
+#DesignDataPickerCompact.OuterDatePicker .OuterStartTime,
+#DesignDataPickerCompact.OuterDatePicker .OuterEndTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#DesignDataPickerCompact.OuterDatePicker .OuterStartTime span,
+#DesignDataPickerCompact.OuterDatePicker .OuterEndTime span {
+    display: block;
+    visibility: hidden;
+    font-size: 0px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+#DesignDataPickerCompact.OuterDatePicker .OuterStartTime:hover,
+#DesignDataPickerCompact.OuterDatePicker .OuterEndTime:hover {
+    background: #4584d6;
+    color: white;
+}
+
+#DesignDataPickerCompact.OuterDatePicker .OuterStartTime:hover > span,
+#DesignDataPickerCompact.OuterDatePicker .OuterEndTime:hover > span {
+    visibility: visible;
+    opacity: 1;
+    font-size: 8px;
+    color: white;
+}
+
+#DesignDataPickerCompact .DesignDatePicker svg {
+   fill: #4584d6;
+}
+
+#DesignDataPickerCompact .NotActive {
+    opacity: 0.3;
+}
+
+#DesignDataPickerCompact .DesignDatePickerWrapper.InnerArea {
+    position: absolute;
+    width: 254px;
+    z-index: 2;
+}
+
+#DesignDataPickerCompact .OuterArea {
+    position: fixed;
+    top: 0;
+    left : 0;
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#DesignDataPickerCompact .disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#DesignDataPickerCompact .DesignDatePicker {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: auto;
+    background: white;
+    border: 1px solid #707070;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#DesignDataPickerCompact .DateCounter {
+    width: 100%;
+    height: 70px;
+    background: white;
+    border: 1px solid #c1c1c1;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    position: relative;
+}
+
+#DesignDataPickerCompact .DateCounter .StartDateCounter,
+#DesignDataPickerCompact .DateCounter .EndDateCounter {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(203, 203, 203)!important;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#DesignDataPickerCompact .DateCounter .StartDateCounter.ActiveDate,
+#DesignDataPickerCompact .DateCounter .EndDateCounter.ActiveDate {
+    background: #4584D6!important;
+    border-bottom: 1px solid #4584D6!important;
+    color: white;
+}
+
+#DesignDataPickerCompact .DateCounter .StartDateCounter span,
+#DesignDataPickerCompact .DateCounter .EndDateCounter span {
+    font-size: 13px;
+}
+
+#DesignDataPickerCompact .DateCounter .StartDateCounter input,
+#DesignDataPickerCompact .DateCounter .EndDateCounter input {
+    font-size: 13px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    font-family: inherit;
+    padding: 0;
+}
+
+#DesignDataPickerCompact .DateCounter .DateExplainer {
+    top: 5px;
+    font-size: 12px!important;
+    font-weight: 600;
+}
+
+#DesignDataPickerCompact .DateCounter .DateSwitcher {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+ }
+
+ #DesignDataPickerCompact .DateCounter .DateSwitcher:hover {
+    border-radius: 15px;
+ }
+
+ #DesignDataPickerCompact .DesignDatePicker .rotateLeft {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#DesignDataPickerCompact .DesignDatePickerHeader {
+    width: 100%;
+    height: 90px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#DesignDataPickerCompact .DesignDatePickerHeader .PickerMonthYear {
+    width: 50%;
+    height: auto;
+    margin: 0 10%;
+    padding: 20px 0;
+    color: #4584D6;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#DesignDataPickerCompact .DesignDatePickerHeader .PickerMonthYear span {
+    font-size: 18px;
+}
+
+#DesignDataPickerCompact .PickerMonthYear .ChangeMonth {
+    font-size: 1px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#DesignDataPickerCompact .PickerMonthYear .ChangeMonth:hover {
+    text-decoration: underline;
+}
+
+#DesignDataPickerCompact .PickerMonthYear:hover > .ChangeMonth {
+    opacity: 1;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#DesignDataPickerCompact .DesignDatePickerHeader svg {
+    cursor: pointer;
+}
+
+#DesignDataPickerCompact .DesignDatePickerSubHeader {
+    width: 100%;
+    height: 20px;
+    padding: 0 5px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    color: #4584D6;
+    font-size: 13px;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMain {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate span,
+#DesignDataPickerCompact .DesignDatePickerSubHeader span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    transition: all 0.1s ease-in-out;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate span:hover:not(.NotActiveMonth) {
+    background: #4584D6;
+    border-radius: 35px;
+    color: white;
+    font-weight: bold;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate .ActiveDay {
+    background: #4584D6;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate .SelectedDay {
+    background: #4e9bffe3;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate .NotActiveMonth {
+    color: #CECECE;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate .MainMonth {
+    width: 120px!important;
+}
+
+#DesignDataPickerCompact .DesignDatePickerMainDate .MainMonth:hover {
+    border-radius: 5px!important;
+}
