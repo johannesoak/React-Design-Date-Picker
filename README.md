@@ -11,3 +11,7 @@ A clean Date Picker to be used with React functional components.
 - Binding for useState hooks.
 - Start date & End date or Single date option.
 - Translation & Locales setting.
+
+## License
+
+Copyright (c) 2020 Johannes Eklund and individual contributors. Licensed under MIT license, see LICENSE for the full license.
