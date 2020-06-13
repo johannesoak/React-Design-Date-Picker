@@ -8,7 +8,10 @@ A clean Date Picker to be used with React functional components.
 - 2 different layouts.
 - Binding for useState hooks.
 - Start date & End date or Single date option.
+- Set weekday to start on monday or sunday.
 - Translation & Locales setting.
+- Add Framer animations.
+- Create a infinity scroll layout.
 
 ## To-Do
 
