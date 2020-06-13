@@ -7,17 +7,17 @@ function App() {
   const [endDate, setEndDate] = useState(false);
 
   const options = {
-    Design: "Classic",
-    Locales: "se-sv",
-    StartWeekOnSunday: true,
-    FullFunctionality: true,
+    Design: "Classic", // Classic or Compact
+    Locales: "se-sv", // Locales - Set "en-us" for default
+    StartWeekOnSunday: true, // False sets the start on monday
+    FullFunctionality: true, // True = Start & End Date | False = Only one date
     Hooks: {
-      start: startDate,
-      setStart: setStartDate,
-      end: endDate,
-      setEnd: setEndDate,
+      start: startDate, // Set state if FullFunctionality is true or false
+      setStart: setStartDate, // Set setState if FullFunctionality is true or false
+      end: endDate, // Set state if FullFunctionality is true and false if FullFunctionality is false
+      setEnd: setEndDate, // Set setState if FullFunctionality is true and false if FullFunctionality is false
     },
-    Translate: true,
+    Translate: true, // Set to true if you want to enable Translation object below. If false then it's english as default.
     Translation: {
       change: "Byt datum",
       startDate: "Start Datum",

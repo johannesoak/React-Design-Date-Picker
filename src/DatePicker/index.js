@@ -23,6 +23,7 @@ export default function MainPicker(props) {
   const [endDate, setEndDate] = useState(options.Hooks.end && options.FullFunctionality ? options.Hooks.end : false);
   const [date, setDate] = useState(startDate ? startDate : CreateDate("date"));
 
+  // Sets the correct design
   let CssID;
   if (options.Design === "Compact") {CssID = "DesignDataPickerCompact";}
   else if (options.Design === "Classic") {CssID = "DesignDataPicker";}
@@ -33,6 +34,7 @@ export default function MainPicker(props) {
     setActive(type);
   };
 
+  // Function that sets the Start/End date
   const PushStartEndDate = (date, type) => {
     if (type === "start") {
       setStartDate(date);
