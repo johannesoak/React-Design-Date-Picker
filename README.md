@@ -29,8 +29,6 @@ A clean Date Picker to be used with React functional components.
 - Add Framer animations.
 - Create a infinity scroll layout.
 
->>>>>>> c30fc404c2648c00391f08b7d70ee29b18392679
-
 ## Known Bugs
 
 - Sets date when selecting month or year in the picker.
