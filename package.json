@@ -1,6 +1,6 @@
 {
   "name": "react-design-date-picker",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "jest --watchAll",
     "eject": "react-scripts eject",
-    "publish:npm": "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/DatePicker--out-dir dist --copy-files"
+    "publish:npm": "rm -rf dist && mkdir dist &&  babel src/DatePicker -d dist --copy-files"
+
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.1",
     "@types/jest": "^26.0.0"
   }
 }
