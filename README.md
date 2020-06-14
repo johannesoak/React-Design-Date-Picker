@@ -18,10 +18,18 @@ A clean Date Picker to be used with React functional components.
 - Add main color option.
 - Add accessability keyboard support.
 - Validate that it's working as expected in different timezones.
+<<<<<<< HEAD
 - Add Framer animations.
 - Create a infinity scroll layout.
 - Connect outer setHooks with internal date values
 - Fix minor design issues on Compact design.
+=======
+- Create tests using Jest framework.
+- Add a time input.
+- Add Framer animations.
+- Create a infinity scroll layout.
+
+>>>>>>> c30fc404c2648c00391f08b7d70ee29b18392679
 
 ## Known Bugs
 
