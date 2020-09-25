@@ -61,18 +61,17 @@ Add the module
 ## To-Do
 
 - Design the draggable element.
-- Responsive design.
-- Add main color option.
+- Create a mobile design.
+- Create and verify Responsive design.
+- Add main color and sub-color options.
 - Add accessability keyboard support.
 - Validate that it's working as expected in different timezones.
 - Add Framer animations.
 - Create a infinity scroll layout.
-- Connect outer setHooks with internal date values
+- Connect outer setHooks with internal date values.
 - Fix minor design issues on Compact design.
 - Create tests using Jest framework.
 - Add a time input.
-- Add Framer animations.
-- Create a infinity scroll layout.
 
 ## Known Bugs
 
