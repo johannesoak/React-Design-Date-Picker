@@ -6,8 +6,9 @@ export default function MonthPicker(props) {
   const { options, startDate, date, setDate, setNav } = props;
 
   const setMonth = (i) => {
-    console.log(startDate)
-    setDate(new Date(date.setMonth(i)))
+    const newDate = new Date(date);
+    newDate.setMonth(i);
+    setDate(newDate);
     setNav("date")
   }
 
