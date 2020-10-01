@@ -75,7 +75,6 @@ Add the module
 
 ## Known Bugs
 
-- Sets date when selecting month or year in the picker.
 
 ## License
 
