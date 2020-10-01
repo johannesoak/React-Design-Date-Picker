@@ -47,13 +47,13 @@ export default function YearPicker(props) {
 
   const prevYear = () => {
     const year = thisYear.getFullYear();
-    setThisYear(new Date(thisYear.setFullYear(year - 9)));
-  };
+    setThisYear(new Date(thisYear.setFullYear(year - 9)))
+  }
 
   const nextYear = () => {
     const year = thisYear.getFullYear();
-    setThisYear(new Date(thisYear.setFullYear(year + 9)));
-  };
+    setThisYear(new Date(thisYear.setFullYear(year + 9)))
+  }
 
   return (
     <>
@@ -62,25 +62,10 @@ export default function YearPicker(props) {
           <div onClick={prevYear}>
             <Arrow size="20px" direction="left" />
           </div>
-          <div className="PickerMonthYear">
-            {options.Translate ? options.Translation.pickYear : "Pick a year"}
-          </div>
-          {
-            <div
-              className={
-                thisYear.getFullYear() === new Date().getFullYear()
-                  ? "NotActive"
-                  : null
-              }
-              onClick={
-                thisYear.getFullYear() === new Date().getFullYear()
-                  ? null
-                  : nextYear
-              }
-            >
-              <Arrow size="20px" direction="right" />
-            </div>
-          }
+          <div className="PickerMonthYear">{options.Translate ? options.Translation.pickYear : "Pick a year"}</div>
+          {<div className={thisYear.getFullYear() === new Date().getFullYear() ? "NotActive" : null} onClick={thisYear.getFullYear() === new Date().getFullYear() ? null : nextYear}>
+            <Arrow size="20px" direction="right" />
+          </div>}
         </div>
         <div className="DesignDatePickerMain">
           <YearArray />
