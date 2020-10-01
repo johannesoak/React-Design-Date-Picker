@@ -8,7 +8,9 @@ export default function YearPicker(props) {
   let [thisYear, setThisYear] = useState(new Date());
 
   const setYear = (i) => {
-    setDate(new Date(date.setYear(i)));
+    const newDate = new Date(date);
+    newDate.setYear(i);
+    setDate(newDate);
     setNav("date");
   };
 
@@ -44,14 +46,14 @@ export default function YearPicker(props) {
   };
 
   const prevYear = () => {
-      const year = thisYear.getFullYear();
-      setThisYear(new Date(thisYear.setFullYear(year - 9)))
+    const year = thisYear.getFullYear();
+    setThisYear(new Date(thisYear.setFullYear(year - 9)))
   }
 
   const nextYear = () => {
     const year = thisYear.getFullYear();
     setThisYear(new Date(thisYear.setFullYear(year + 9)))
-}
+  }
 
   return (
     <>
