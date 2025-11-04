@@ -3,6 +3,8 @@ import React, { useState } from "react";
 export default function CreateDaysArray(props) {
   const { date, options, startDate, endDate, PushStartEndDate } = props;
   const [drag, setDrag] = useState(false);
+  const [tasksByDate, setTasksByDate] = useState({});
+
   const PushDate = (date) => {
     PushStartEndDate(date);
   };
@@ -11,6 +13,20 @@ export default function CreateDaysArray(props) {
       PushStartEndDate(date, drag);
     }
   };
+
+  // Drag and Drop Handlers
+
+  const handleDragOver = (e) => e.preventDefault();
+
+const handleDropTask = (e, day) => {
+  e.preventDefault();
+  const task = e.dataTransfer.getData("text/plain"); // text de DraggableItem
+  const dayKey = day.date.toISOString().split("T")[0]; // format YYYY-MM-DD
+  setTasksByDate((prev) => {
+    const prevTasks = prev[dayKey] || [];
+    return { ...prev, [dayKey]: [...prevTasks, task] };
+  });
+};
   // Calc how many days it was last month
   let DaysLastMonth = new Date(
     date.getFullYear(),
@@ -98,27 +114,34 @@ export default function CreateDaysArray(props) {
   let weekArray = [];
   let counter = 0;
   daysArray.forEach((day, i) => {
+
+     const dayKey = day.date.toISOString().split("T")[0];
+     const dayTasks = tasksByDate[dayKey] || [];
+
     if (date.getMonth() !== day.date.getMonth()) {
       weekArray.push(
         <span className="NotActiveMonth" key={"OtherMonth" + day.day}>
           {day.day}
         </span>
       );
-    } else if (date.getMonth() === day.date.getMonth()) {
-      let selected = day.selected ? "SelectedDay" : "";
-      let active = day.active ? "ActiveDay" : "";
+    } else {
+      const selected = day.selected ? "SelectedDay" : "";
+      const active = day.active ? "ActiveDay" : "";
       weekArray.push(
         <span
           key={"ThisMonth" + day.day}
           className={selected + active}
           onClick={() => PushDate(day.date)}
-          onDragOver={(event) => event.preventDefault()}
-          onDrop={() => PushDateOnDrop(day.date)}
+          onDragOver={handleDragOver}
+          onDrop={(e) => {
+            PushDateOnDrop(day.date);
+            handleDropTask(e, day);
+          }}
           onDrag={(event) => {
-            if (startDate.getDate() === day.date.getDate()) {
+            if (startDate?.getDate() === day.date.getDate()) {
               event.preventDefault();
               setDrag("start");
-            } else if (endDate.getDate() === day.date.getDate()) {
+            } else if (endDate?.getDate() === day.date.getDate()) {
               event.preventDefault();
               setDrag("end");
             } else {
@@ -129,6 +152,22 @@ export default function CreateDaysArray(props) {
           draggable
         >
           {day.day}
+          {/* Mostrar tasques */}
+          {dayTasks.map((task, idx) => (
+            <div
+              key={idx}
+              style={{
+                fontSize: "10px",
+                background: "#4da6ff",
+                color: "white",
+                marginTop: "2px",
+                borderRadius: "4px",
+                padding: "2px",
+              }}
+            >
+              {task}
+            </div>
+          ))}
         </span>
       );
     }
@@ -146,5 +185,8 @@ export default function CreateDaysArray(props) {
       counter = 0;
     }
   });
+
+  
+
   return array;
 }

@@ -6,6 +6,9 @@ import CreateDaysArray from "../components/CreatingDaysArray";
 // Functions
 import { DayNames, GetLongMonths } from "../functions/GetMonthName";
 
+// Draggable Item
+import DragableItem from "../components/DragableItem";
+
 // Arrow
 import Arrow from "../asset/Arrow";
 
@@ -55,6 +58,13 @@ export default function DatePicker(props) {
             endDate={endDate}
             PushStartEndDate={PushStartEndDate}
           />
+
+           {/* Exemple draggable */}
+  <div style={{ marginTop: "20px", display: "flex" }}>
+    <DragableItem text="Task 1" />
+    <DragableItem text="Task 2" />
+    <DragableItem text="Task 3" />
+  </div>
         </div>
       </div>
     </>
